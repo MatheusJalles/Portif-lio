@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 200vh;
+  font-family: sans-serif;
+  position: relative;
+
+  /* imagem de fundo */
+  background-image: url("fbd9288f-cffb-45bb-ad2e-7b2799aac177.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* overlay para escurecer a imagem sem afetar as luzes */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.799); /* ajuste a opacidade: 0.0 = transparente, 1.0 = preto total */
+  z-index: 0;
+}
+
+
+
+/* LÂMPADAS COLORIDAS */
+.lampada {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: piscar 0.6s infinite alternate ease-in-out;
+}
+
+/* ANIMAÇÃO DO BRILHO */
+@keyframes piscar {
+  from {
+    opacity: 0.2;
+    transform: scale(0.8);
+    box-shadow: none;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.4);
+    box-shadow:
+      0 0 6px currentColor,
+      0 0 14px currentColor,
+      0 0 25px currentColor;
+  }
+}
+
+/* LANDING */
+.landing {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FRASES */
+.frase {
+  position: fixed;
+  top: 50%;
+  transform: rotate(-90deg);
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 4px;
+}
+.frase.topo {
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  rotate: 0deg;
+}
+
+.frase.esquerda {
+  left: 500px;
+}
+
+.frase.direita {
+  right: 500px;
+}
+
+/* BOX CENTRAL */
+.box {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* CARROSSEL */
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  font-size: 40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.viewport {
+  width: 320px;
+  height: 320px;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 320px;
+  height: 320px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.slide:hover {
+  transform: scale(1.06);
+}
+
+/* IMAGENS */
+.slide.imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* VÍDEOS */
+.slide.video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+  border-radius: 14px;
+}
+
+h1 {
+  color: white;
+  margin: 15px 0 5px;
+}
+
+.frase-baixo {
+  color: rgba(255,255,255,0.6);
+}
