@@ -21,11 +21,9 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.799); /* ajuste a opacidade: 0.0 = transparente, 1.0 = preto total */
+  background: rgba(0, 0, 0, 0.8); /* ajuste a opacidade */
   z-index: 0;
 }
-
-
 
 /* LÂMPADAS COLORIDAS */
 .lampada {
@@ -37,7 +35,6 @@ body::before {
   animation: piscar 0.6s infinite alternate ease-in-out;
 }
 
-/* ANIMAÇÃO DO BRILHO */
 @keyframes piscar {
   from {
     opacity: 0.2;
@@ -79,19 +76,14 @@ body::before {
   rotate: 0deg;
 }
 
-.frase.esquerda {
-  left: 500px;
-}
-
-.frase.direita {
-  right: 500px;
-}
+.frase.esquerda { left: 500px; }
+.frase.direita { right: 500px; }
 
 /* BOX CENTRAL */
 .box {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
-  padding: 30px;
+  padding: 70px;
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
@@ -101,7 +93,7 @@ body::before {
 .carousel {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
 }
 
 .btn {
@@ -159,31 +151,25 @@ h1 {
 .frase-baixo {
   color: rgba(255,255,255,0.6);
 }
-.paint-container {
-  margin: 20px auto;
-  text-align: center;
-  max-width: 600px;
-  align-items: center;
-}
-
-#paint {
-  border: 2px solid rgba(255,255,255,0.5);
-  border-radius: 10px;
-  background: rgba(0,0,0,0.2);
-  cursor: crosshair;
-}
-
-.paint-tools {
-  margin-top: 10px;
+#btn-musica {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  border: none;
+  background-color: rgba(255,255,255,0.3);
   color: white;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.paint-tools input,
-.paint-tools button,
-.paint-tools select {
-  cursor: pointer;
+#btn-musica:hover {
+  background-color: rgba(255,255,255,0.6);
 }
+
+#volume {
+  width: 150px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
