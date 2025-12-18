@@ -159,3 +159,28 @@ h1 {
 .frase-baixo {
   color: rgba(255,255,255,0.6);
 }
+.paint-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#paint {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  background: rgba(245, 245, 245, 0.522);
+  cursor: crosshair;
+}
+
+.paint-tools {
+  margin-top: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.paint-tools input,
+.paint-tools button {
+  cursor: pointer;
+}

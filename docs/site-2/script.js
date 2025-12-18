@@ -67,3 +67,50 @@ window.addEventListener('load', () => {
   }
 
 });
+/* =====================
+   PAINT FUNCIONAL
+===================== */
+const canvas = document.getElementById('paint');
+const ctx = canvas.getContext('2d');
+let painting = false;
+let color = document.getElementById('paintColor').value;
+let size = document.getElementById('paintSize').value;
+
+function startPosition(e) {
+  painting = true;
+  draw(e);
+}
+
+function endPosition() {
+  painting = false;
+  ctx.beginPath();
+}
+
+function draw(e) {
+  if (!painting) return;
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  ctx.lineWidth = size;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = color;
+
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+}
+
+// Eventos do mouse
+canvas.addEventListener('mousedown', startPosition);
+canvas.addEventListener('mouseup', endPosition);
+canvas.addEventListener('mouseout', endPosition);
+canvas.addEventListener('mousemove', draw);
+
+// Atualizar cor e tamanho
+document.getElementById('paintColor').addEventListener('change', (e) => color = e.target.value);
+document.getElementById('paintSize').addEventListener('change', (e) => size = e.target.value);
+
+// Limpar canvas
+document.getElementById('clearPaint').addEventListener('click', () => ctx.clearRect(0, 0, canvas.width, canvas.height));
